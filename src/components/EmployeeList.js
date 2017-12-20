@@ -11,13 +11,13 @@ class EmployeeList extends Component {
     this.createDataSource(this.props);
   }
   componentWillReceiveProps(nextProps) {
-    this.createDataSource(this.props);
+    this.createDataSource(nextProps);
   }
   createDataSource({ employees }) {
     const datasrc = new ListView.DataSource({
       rowHasChanged: (r1, r2) => r1
     });
-    this.dataSource = datasrc.cloneWithRows(this.props.employees);
+    this.dataSource = datasrc.cloneWithRows(employees);
   }
   renderRow(employee) {
     return <ListItem employee={employee} />;
